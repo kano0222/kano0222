@@ -7,7 +7,8 @@
   </a>
 
   <br>
-
+  <!--  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=kano0222&show_icons=true&hide_border=true" />
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=kano0222&hide_border=true" />  --> 
   <img
     src="https://github-readme-stats-me-e0a7.vercel.app/api?username=kano0222&amp;show_icons=true&amp;hide_border=true&amp;v=20260812"
     alt="GitHub Stats"
