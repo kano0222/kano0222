@@ -11,6 +11,9 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    concurrency:
+      group: generated-output
+      cancel-in-progress: false
     name: generate-github-profile-3d-contrib
     steps:
       - uses: actions/checkout@v5
@@ -18,11 +21,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
-      - name: Commit & Push
+      - name: Publish 3D profile to output
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add -A .
-          if git commit -m "generated"; then
-            git push
+          git fetch origin output:refs/remotes/origin/output
+          git worktree add --detach "$RUNNER_TEMP/profile-output" origin/output
+          mkdir -p "$RUNNER_TEMP/profile-output/profile-3d-contrib"
+          rsync -a --delete profile-3d-contrib/ "$RUNNER_TEMP/profile-output/profile-3d-contrib/"
+          git -C "$RUNNER_TEMP/profile-output" config user.name github-actions
+          git -C "$RUNNER_TEMP/profile-output" config user.email github-actions@github.com
+          git -C "$RUNNER_TEMP/profile-output" add profile-3d-contrib
+          if ! git -C "$RUNNER_TEMP/profile-output" diff --cached --quiet; then
+            git -C "$RUNNER_TEMP/profile-output" commit -m "Update 3D profile"
+            git -C "$RUNNER_TEMP/profile-output" push origin HEAD:output
           fi

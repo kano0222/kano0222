@@ -19,7 +19,11 @@
   />
 
   <img
-    src="https://raw.githubusercontent.com/kano0222/kano0222/output/github-contribution-grid-snake.svg"
+    src="https://raw.githubusercontent.com/kano0222/kano0222/output/snake/github-contribution-grid-snake.svg"
     alt="Contribution Snake"
+  />
+  <img
+    src="https://raw.githubusercontent.com/kano0222/kano0222/output/profile-3d-contrib/profile-green-animate.svg"
+    alt="3D Contribution Graph"
   />
 </div>
