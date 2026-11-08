@@ -5,19 +5,32 @@
       alt="Typing SVG"
     />
   </a>
+</div>
 
-  <br>
-  <!--  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=kano0222&show_icons=true&hide_border=true" />
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=kano0222&hide_border=true" />  --> 
+<div align="center">
+  <img
+    align="right"
+    src="https://github-readme-stats-me-e0a7.vercel.app/api/top-langs/?username=kano0222&amp;hide_border=true&amp;v=20260812"
+    alt="Top Languages"
+  />
   <img
     src="https://github-readme-stats-me-e0a7.vercel.app/api?username=kano0222&amp;show_icons=true&amp;hide_border=true&amp;v=20260812"
     alt="GitHub Stats"
   />
-  <img
-    src="https://github-readme-stats-me-e0a7.vercel.app/api/top-langs/?username=kano0222&amp;hide_border=true&amp;v=20260812"
-    alt="Top Languages"
-  />
+  <br />
+  <br />
+  <br />
+  <a href="https://wakatime.com/@018b8146-2166-4d64-8a90-12d0ea2a118e">
+    <img
+      src="https://wakatime.com/badge/user/018b8146-2166-4d64-8a90-12d0ea2a118e.svg"
+      alt="WakaTime"
+    />
+  </a>
+</div>
 
+<br clear="all" />
+
+<div align="center">
   <img
     src="https://raw.githubusercontent.com/kano0222/kano0222/output/snake/github-contribution-grid-snake.svg"
     alt="Contribution Snake"
