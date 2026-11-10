@@ -10,11 +10,11 @@
 <div align="center">
   <img
     align="right"
-    src="https://github-readme-stats-me-e0a7.vercel.app/api/top-langs/?username=kano0222&amp;hide_border=true&amp;v=20260812"
+    src="https://raw.githubusercontent.com/kano0222/kano0222/output/stats/top-langs.svg"
     alt="Top Languages"
   />
   <img
-    src="https://github-readme-stats-me-e0a7.vercel.app/api?username=kano0222&amp;show_icons=true&amp;hide_border=true&amp;v=20260812"
+    src="https://raw.githubusercontent.com/kano0222/kano0222/output/stats/stats.svg"
     alt="GitHub Stats"
   />
   <br />

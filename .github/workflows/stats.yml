@@ -1,0 +1,78 @@
+name: Generate README Stats
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/stats.yml
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - name: Generate stats card
+        uses: stats-organization/github-readme-stats-action@96a939a7398a290e0a9f84b2b31d21d0cf67d483 # v2
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&hide_border=true
+          path: dist/stats/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - name: Generate top languages card
+        uses: stats-organization/github-readme-stats-action@96a939a7398a290e0a9f84b2b31d21d0cf67d483 # v2
+        with:
+          card: top-langs
+          options: username=${{ github.repository_owner }}&hide_border=true
+          path: dist/stats/top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: readme-stats
+          path: dist/stats/*.svg
+          if-no-files-found: error
+          retention-days: 1
+
+  publish:
+    needs: generate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: generated-output
+      cancel-in-progress: false
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v4
+        with:
+          name: readme-stats
+          path: dist/stats
+
+      - name: Publish stats to output
+        run: |
+          git fetch origin output:refs/remotes/origin/output
+          git worktree add --detach "$RUNNER_TEMP/profile-output" origin/output
+          mkdir -p "$RUNNER_TEMP/profile-output/stats"
+          rsync -a --delete dist/stats/ "$RUNNER_TEMP/profile-output/stats/"
+          git -C "$RUNNER_TEMP/profile-output" config user.name github-actions
+          git -C "$RUNNER_TEMP/profile-output" config user.email github-actions@github.com
+          git -C "$RUNNER_TEMP/profile-output" add stats
+          if ! git -C "$RUNNER_TEMP/profile-output" diff --cached --quiet; then
+            git -C "$RUNNER_TEMP/profile-output" commit -m "Update README stats"
+            git -C "$RUNNER_TEMP/profile-output" push origin HEAD:output
+          fi
