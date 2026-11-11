@@ -18,7 +18,30 @@
     alt="GitHub Stats"
   />
   <br />
-  <br />
+  <img
+    src="https://img.shields.io/badge/-Python-3e74a2?style=flat-square&amp;logo=Python&amp;logoColor=fff"
+    alt="Python"
+  />
+  <img
+    src="https://img.shields.io/badge/-Vue-4fc08d?style=flat-square&amp;logo=Vue.js&amp;logoColor=fff"
+    alt="Vue"
+  />
+  <img
+    src="https://img.shields.io/badge/-TypeScript-3178c6?style=flat-square&amp;logo=typescript&amp;logoColor=fff"
+    alt="TypeScript"
+  />
+  <img
+    src="https://img.shields.io/badge/-Node.js-5fa04e?style=flat-square&amp;logo=nodedotjs&amp;logoColor=fff"
+    alt="Node.js"
+  />
+  <img
+    src="https://img.shields.io/badge/-Docker-2496ed?style=flat-square&amp;logo=docker&amp;logoColor=fff"
+    alt="Docker"
+  />
+  <img
+    src="https://img.shields.io/badge/-C%23-512bd4?style=flat-square&amp;logo=dotnet&amp;logoColor=fff"
+    alt="C#"
+  />
   <br />
   <a href="https://wakatime.com/@018b8146-2166-4d64-8a90-12d0ea2a118e">
     <img
